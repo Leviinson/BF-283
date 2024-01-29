@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       const response = await axios.put(
-        `http://0.0.0.0:80/${region}/cart/`,
+        `/${region}/cart/`,
         requestBody,
         config
       );

@@ -65,7 +65,7 @@ $(document).ready(function () {
         }
       };
       const response = await axios.post(
-        'http://0.0.0.0:80/quick-orders/',
+        '/quick-orders/',
         { name, full_number, productId, csrfmiddlewaretoken },
         config
       );

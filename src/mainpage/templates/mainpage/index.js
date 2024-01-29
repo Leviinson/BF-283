@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     try {
       const response = await axios({
-        url: `http://0.0.0.0:80/product/${region}/`,
+        url: `/product/${region}/`,
         params: {
           subcategory,
           minBudget,
@@ -301,7 +301,7 @@ $(document).ready(function () {
         }
       };
       const response = await axios.post(
-        'http://0.0.0.0:80/individual-orders/',
+        '/individual-orders/',
         { name, full_number, minBudget, maxBudget, file, csrfmiddlewaretoken },
         config
       );

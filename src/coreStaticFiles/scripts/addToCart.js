@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const bouquetSize = parseInt(card.dataset.selectedSize);
         if (!isNaN(bouquetSize) && bouquetSize % 1 === 0) {
           response = await axios.post(
-            `http://0.0.0.0:80/${region}/cart/`,
+            `/${region}/cart/`,
             { id, amount, csrfmiddlewaretoken, bouquet_size: bouquetSize },
             config
           );
         }
       } else {
         response = await axios.post(
-          `http://0.0.0.0:80/${region}/cart/`,
+          `/${region}/cart/`,
           { id, amount, csrfmiddlewaretoken},
           config
         );

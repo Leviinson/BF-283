@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       try {
         const response = await axios({
-          url: `http://0.0.0.0:80/product/${region}/`,
+          url: `/product/${region}/`,
           params: { search: trimmedValue, currency },
         });
 

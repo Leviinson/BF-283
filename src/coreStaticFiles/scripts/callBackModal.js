@@ -71,7 +71,7 @@ $(document).ready(function () {
         }
       };
       const response = await axios.post(
-        'http://0.0.0.0:80/feedbacks/',
+        '/feedbacks/',
         { full_number, name, csrfmiddlewaretoken },
         config
       );

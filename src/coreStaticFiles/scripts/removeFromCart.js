@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         requestBody = { id, csrfmiddlewaretoken }
       }
     const response = await axios.delete(
-      `http://0.0.0.0:80/${region}/cart/`,
+      `/${region}/cart/`,
       {
         data: requestBody,
         headers: config.headers

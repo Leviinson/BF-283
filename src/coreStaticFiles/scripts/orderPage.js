@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //       }
   //     };
   //     const response = await axios.post(
-  //       'http://0.0.0.0:80/orders/',
+  //       '/orders/',
   //       // { name, full_number, productId, csrfmiddlewaretoken },
   //       config
   //     );
