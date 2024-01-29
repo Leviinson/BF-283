@@ -435,13 +435,13 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
             order_id = created_order_json["data"][0]["details"]["id"]
             await session_data.remove_ordered_products(session, cart_products_ids)
             await session_data.add_order(session, order_id)
-            await self.notify_user_by_email_or_sms(
-                data["customer_phone_number"],
-                order_number,
-                created_order_json["data"][0]["grand_total"],
-                selected_currency,
-                data["customer_email"],
-            )
+            # await self.notify_user_by_email_or_sms(
+            #     data["customer_phone_number"],
+            #     order_number,
+            #     created_order_json["data"][0]["grand_total"],
+            #     selected_currency,
+            #     data["customer_email"],
+            # )
             return render(
                 self.request,
                 "core_components/notification.html",
