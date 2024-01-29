@@ -11,6 +11,8 @@
 
 ```bash
 Django      SECRET_KEY
+            NGINX_DOMEN
+            GUNICORN_DOMEN
 
 Zoho        ZOHO_CLIENT_ID
             ZOHO_CLIENT_SECRET
@@ -31,11 +33,12 @@ SMTP_SERVER MAIL_USERNAME
             MAIL_PASSWORD
             MAIL_PORT
             MAIL_SERVER
+            DEFAULT_FROM_EMAIL
 ```
 
 ### API authorization tokens
 
-1. GRANT_TOKEN have to be created in [Zoho Dev Console](https://api-console.zoho.eu/) for Self-Client application and placed in .env file either.
+1. GRANT_TOKEN have to be created in [Zoho API Console](https://api-console.zoho.eu/) for Self-Client application and placed in .env file either.
 
 2. Scope for GRANT_TOKEN obtaining is ZohoCRM.settings.ALL,ZohoCRM.modules.ALL,ZohoCRM.coql.READ
 
@@ -53,7 +56,13 @@ SMTP_SERVER MAIL_USERNAME
     - make sure last changes in .env file had taken into account;
     - execute command: 
     
+    Ubuntu:
+
     `sudo docker compose --env-file .env up`
+
+    Windows:
+
+    `docker compose --env-file .env up`    
 
 ---
 
@@ -81,7 +90,7 @@ The next variables from .env file in root directory of the project will be used:
 
 ---
 
-### Installing questions
+### Post-installing questions
 
 
 1. To make some operations with created mysql db use commands in terminal:
@@ -95,13 +104,15 @@ The next variables from .env file in root directory of the project will be used:
 
 ### Running the Container
 
-To run the MySQL container, you can use the following command:
+To build and run container, you can use the following command:
 
 ```bash
 docker-compose --env-file ../.env up -d
 ```
 
 Now the MySQL server inside the container will be accessible on port specified in .env file with variable MYSQL_EXTERNAL_PORT.
+
+Connect to the server provided by NGINX accesseble by NGINX_DOMEN variable value, specified in .env
 
 ## Adding content to Zoho CRM.
 
