@@ -1,0 +1,83 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ./
+      dockerfile: containers/db/Dockerfile
+    volumes:
+      - mysqldata:/var/lib/mysql
+    image: mysql:8.0
+    container_name: bf-mysql-1.0-kg
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    command: --authentication-policy=caching_sha2_password --innodb-use-native-aio=0 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - ${MYSQL_EXTERNAL_PORT}:${MYSQL_INTERNAL_PORT}
+  app:
+    build:
+      context: ./
+      dockerfile: containers/app/Dockerfile
+    container_name: bf-app-1.0-kg
+    volumes:
+      - static_container:/apps/BonnyFlowers/static
+      - media_container:/apps/BonnyFlowers/media
+      - ./src:/apps/BonnyFlowers
+    environment:
+      - NGINX_DOMEN=${NGINX_DOMEN}
+      - GUNICORN_DOMEN=${GUNICORN_DOMEN}
+      - SECRET_KEY=${SECRET_KEY}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_PORT=${MYSQL_INTERNAL_PORT}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+      - MAIL_SERVER=${MAIL_SERVER}
+      - MAIL_USERNAME=${MAIL_USERNAME}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MAIL_PORT=${MAIL_PORT}
+      - DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL}
+
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+
+      - ZOHO_CURRENT_USER_EMAIL=${ZOHO_CURRENT_USER_EMAIL}
+      - ZOHO_RESOURCE_PATH=${ZOHO_RESOURCE_PATH}
+      - ZOHO_LOGGER_PATH=${ZOHO_LOGGER_PATH}
+      - GRANT_TOKEN=${GRANT_TOKEN}
+      - ZOHO_CLIENT_SECRET=${ZOHO_CLIENT_SECRET}
+      - ZOHO_CLIENT_ID=${ZOHO_CLIENT_ID}
+
+      - DEBIAN_FRONTEND=noninteractive
+    ports:
+      - 8000:8000
+    command: sh -c "service mysql start && \
+                    service mysql status && \
+                    mkdir -p /apps/BonnyFlowers/zoho_token/logger && touch /apps/BonnyFlowers/zoho_token/logger/log.log && \
+                    rm -f poetry.lock && \
+                    poetry env use python3 && \
+                    poetry install --no-root  --no-interaction --no-ansi && \
+                    poetry run python3 manage.py collectstatic --noinput --no-color -c && \
+                    poetry run python3 manage.py makemigrations --noinput catalogue custom_auth mainpage products userprofile zoho_token && \
+                    poetry run python3 manage.py migrate && \
+                    poetry run python3 create_init_records.py && \
+                    poetry run gunicorn -c gunicorn.conf.py config.wsgi"
+  nginx:
+    image: nginx
+    container_name: bf-nginx-kg
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+    volumes:
+      - static_container:/var/www/html/static
+      - media_container:/var/www/html/media
+      - ./nginx-conf.d:/etc/nginx/conf.d
+volumes:
+  static_container:
+  media_container:
+  mysqldata:
