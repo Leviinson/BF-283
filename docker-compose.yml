@@ -58,7 +58,6 @@ services:
     command: sh -c "service mysql start && \
                     service mysql status && \
                     mkdir -p /apps/BonnyFlowers/zoho_token/logger && touch /apps/BonnyFlowers/zoho_token/logger/log.log && \
-                    rm -f poetry.lock && \
                     poetry env use python3 && \
                     poetry install --no-root  --no-interaction --no-ansi && \
                     poetry run python3 manage.py collectstatic --noinput --no-color -c && \

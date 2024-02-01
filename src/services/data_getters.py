@@ -35,7 +35,7 @@ class crm_data:
         if location_data := cache.get(f"{ip_address}"):
             return location_data
         location_data: dict = await ip_geo_locator.fetch_location(ip_address)
-        cache.set(f"{ip_address}", location_data, 3600)
+        cache.set(f"{ip_address}", location_data, 10)
         return location_data
 
     @staticmethod
@@ -67,7 +67,7 @@ class crm_data:
                 ),
                 status=503,
             )
-        cache.set("region_dict", region_dict, 3600)
+        cache.set("region_dict", region_dict, 10)
         return region_dict
 
     @staticmethod
@@ -85,7 +85,7 @@ class crm_data:
         regions_default_currencies_dict = (
             await regions_default_currencies_handler.fetch_instances()
         )
-        cache.set("regions_default_currencies", regions_default_currencies_dict, 3600)
+        cache.set("regions_default_currencies", regions_default_currencies_dict, 10)
         return regions_default_currencies_dict
 
     @staticmethod
@@ -112,7 +112,7 @@ class crm_data:
         region_products: list = await region_products_handler.fetch_instances(
             region_slug, currency=currency, subcategories=subcategories_list
         )
-        cache.set(f"{region_slug}_products", region_products, 3600)
+        cache.set(f"{region_slug}_products", region_products, 10)
         return region_products
 
     @staticmethod
@@ -137,7 +137,7 @@ class crm_data:
                 ),
                 status=503,
             )
-        cache.set("currency_list", currency_list, 3600)
+        cache.set("currency_list", currency_list, 10)
         return currency_list
 
     @staticmethod
@@ -151,7 +151,7 @@ class crm_data:
         if subcategories := cache.get("subcategories"):
             return subcategories
         subcategories: list = await subcategories_handler.fetch_instances()
-        cache.set("subcategories", subcategories, 3600)
+        cache.set("subcategories", subcategories, 10)
         return subcategories
 
     @staticmethod
@@ -165,7 +165,7 @@ class crm_data:
         if categories := cache.get("categories"):
             return categories
         categories: list = await categories_handler.fetch_instances()
-        cache.set("categories", categories, 3600)
+        cache.set("categories", categories, 10)
         return categories
 
     @staticmethod
@@ -179,7 +179,7 @@ class crm_data:
         if contacts := cache.get("contacts"):
             return contacts
         contacts: Contact = await Contact.objects.afirst()
-        cache.set("contacts", contacts, 3600)
+        cache.set("contacts", contacts, 10)
         return contacts
 
     @staticmethod
