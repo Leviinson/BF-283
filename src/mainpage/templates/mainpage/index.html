@@ -33,7 +33,7 @@
 
 <body>
   <!-- HEADER -->
-  {% include 'core_components/header.html' %}
+  {% include 'templates/header.html' %}
 
   <main>
     <!-- SLIDER header -->
@@ -370,7 +370,7 @@
               <div class="slide-card-container">
                 {% for product in region_bestsellers %}
 
-                  {% include 'core_components/cardXlForSlider.html' %}
+                  {% include 'templates/cardXlForSlider.html' %}
 
                   {% if forloop.counter|divisibleby:6 %}
                     </div>
@@ -425,7 +425,7 @@
         <div class="additional-products-container m-b-70">
           <div class="additional-products">
             {% for product in additional_products %}
-              {% include 'core_components/cardXlForSlider.html' %}
+              {% include 'templates/cardXlForSlider.html' %}
             {% endfor %}
           </div>
         </div>
@@ -438,9 +438,9 @@
     <!-- MODALS -->
 
     <!-- MODAL-CALL-BACK -->
-    {% include 'core_components/callBackModal.html' %}
+    {% include 'templates/callBackModal.html' %}
     <!-- MODAL-USER-LOCATION -->
-    {% include 'core_components/locationModal.html' %}
+    {% include 'templates/locationModal.html' %}
 
     <!-- MODAL-INDIVIDUAL-ORDER -->
     <div class="modal fade individualOrderModal" id="individualOrderModal" tabindex="-1"
@@ -563,14 +563,14 @@
     </div>
     
     <!-- MODAL-QUICK-ORDER -->
-    {% include 'core_components/quickOrderModal.html' %}
+    {% include 'templates/quickOrderModal.html' %}
 
     <!-- SOCIALS BUTTONS -->
-    {% include 'core_components/buttons.html' %}
+    {% include 'templates/buttons.html' %}
   </main>
   
   <!-- FOOTER -->
-  {% include 'core_components/footer.html' %}
+  {% include 'templates/footer.html' %}
 
   <!-- SCRIPT`S -->
 

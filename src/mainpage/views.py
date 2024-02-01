@@ -67,7 +67,7 @@ class MainPageView(ApplicationMixin, AsyncTemplateView):
             return HttpResponseServerError(
                 render(
                     self.request,
-                    "core_components/notification.html",
+                    "templates/notification.html",
                     {
                         "header": "Server error",
                         "message_top": "We are so sorry, but the shop isn't \

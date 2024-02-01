@@ -55,7 +55,7 @@ class crm_data:
             return HttpResponseServerError(
                 render(
                     request,
-                    "core_components/notification.html",
+                    "templates/notification.html",
                     {
                         "header": "Server error",
                         "message_top": "We are so sorry, but the shop isn't \
@@ -125,7 +125,7 @@ class crm_data:
             return HttpResponseServerError(
                 render(
                     request,
-                    "core_components/notification.html",
+                    "templates/notification.html",
                     {
                         "header": "Server error",
                         "message_top": "We are so sorry, but the shop isn't \

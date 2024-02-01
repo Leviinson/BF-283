@@ -384,7 +384,7 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
             return HttpResponseBadRequest(
                 render(
                     self.request,
-                    "core_components/notification.html",
+                    "templates/notification.html",
                     {
                         "header": "Bad request",
                         "message_top": "We are so sorry, but there is \
@@ -410,7 +410,7 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
             await session_data.remove_ordered_products(session, not_existent_products_id_set)
             return render(
                 self.request,
-                "core_components/notification.html",
+                "templates/notification.html",
                 {
                     "title": "BonnyFlowers",
                     "header": "Помилка",
@@ -444,7 +444,7 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
             # )
             return render(
                 self.request,
-                "core_components/notification.html",
+                "templates/notification.html",
                 {
                     "title": "BonnyFlowers",
                     "header": "Замовлення створено!",
@@ -577,7 +577,7 @@ class OrdersList(AsyncTemplateView, ApplicationMixin):
                 return HttpResponseServerError(
                     render(
                         self.request,
-                        "core_components/notification.html",
+                        "templates/notification.html",
                         {
                             "header": "Server error",
                             "message_top": "We are so sorry, but the shop isn't \
