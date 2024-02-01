@@ -14,7 +14,6 @@ class ZohoTokenConfig(AppConfig):
     def ready(self) -> None:
         excluded_commands = ["migrate", "collectstatic", "makemigrations"]
 
-        # Проверка, выполняется ли текущая команда
         if any(command in sys.argv for command in excluded_commands):
             return
         from .models import ZohoOAuth
