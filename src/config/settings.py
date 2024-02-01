@@ -28,7 +28,7 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 DOMEN = f"http://{os.getenv('NGINX_DOMEN')}"
 
 ALLOWED_HOSTS = [
@@ -74,8 +74,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["coreStaticFiles/templates/"],
-        "APP_DIRS": True,
+        "DIRS": ["static/"],
+        "APP_DIRS": False,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
