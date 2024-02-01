@@ -22,7 +22,7 @@ services:
       dockerfile: containers/app/Dockerfile
     container_name: bf-app-1.0-kg
     volumes:
-      - static_container:/apps/BonnyFlowers/static
+      - ./src/static:/apps/BonnyFlowers/static
       - media_container:/apps/BonnyFlowers/media
       - ./src:/apps/BonnyFlowers
     environment:
@@ -74,10 +74,9 @@ services:
     ports:
       - "80:80"
     volumes:
-      - static_container:/var/www/html/static
+      - ./src/static:/var/www/html/static
       - media_container:/var/www/html/media
       - ./nginx-conf.d:/etc/nginx/conf.d
 volumes:
-  static_container:
   media_container:
   mysqldata:
