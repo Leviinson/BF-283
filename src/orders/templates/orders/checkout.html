@@ -35,7 +35,7 @@
 
 <body>
   <!-- HEADER -->
-  {% include 'templates/header.html' %}
+  {% include 'core_components/templates/header.html' %}
 
   <main>
     <form class="container order-container" method="post" action="{% url 'orders:checkout' region.slug %}">
@@ -196,7 +196,7 @@
       
                     <div class="slide-card-container">
                       {% for product in suggested_products %}
-                        {% include 'templates/cardXlForSlider.html' %}
+                        {% include 'core_components/templates/cardXlForSlider.html' %}
                         
                         {% if forloop.counter|divisibleby:2 %}
                           </div>
@@ -238,7 +238,7 @@
                         </p>
                       </div>
                     </div>
-                    {% include 'templates/counter.html' %}
+                    {% include 'core_components/templates/counter.html' %}
                   </div>
                 </div>
               </div>
@@ -298,7 +298,7 @@
 
           <div class="m-b-40 order-selected-cards-container">
             {% for product in cart_products %}
-              {% include 'templates/cardSforCheckout.html' %}
+              {% include 'core_components/templates/cardSforCheckout.html' %}
             {% endfor %}
           </div>
 
@@ -334,19 +334,19 @@
 
       <!-- MODALS -->
     <!-- MODAL-CALL-BACK -->
-    {% include 'templates/callBackModal.html' %}
+    {% include 'core_components/templates/callBackModal.html' %}
     <!-- MODAL-USER-LOCATION -->
-    {% include 'templates/locationModal.html' %}
+    {% include 'core_components/templates/locationModal.html' %}
 
     <!-- MODAL-QUICK-ORDER -->
-    {% include 'templates/quickOrderModal.html' %}
+    {% include 'core_components/templates/quickOrderModal.html' %}
 
     <!-- SOCIALS BUTTONS -->
-    {% include 'templates/buttons.html' %}
+    {% include 'core_components/templates/buttons.html' %}
   </main>
 
   <!-- FOOTER -->
-  {% include 'templates/footer.html' %}
+  {% include 'core_components/templates/footer.html' %}
 
   <!-- SCRIPT`S -->
 

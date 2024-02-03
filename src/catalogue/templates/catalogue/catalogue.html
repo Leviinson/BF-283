@@ -42,7 +42,7 @@
 <body>
   <!-- HEADER -->
 
-  {% include 'templates/header.html' %}
+  {% include 'core_components/templates/header.html' %}
 
   <main>
     <!-- BREADCRUMBS -->
@@ -145,7 +145,7 @@
 
         <div class="catalogue-filtered-cards">
           {% for product in products_page %}
-            {% include 'templates/cardXlForSlider.html' %}
+            {% include 'core_components/templates/cardXlForSlider.html' %}
           {% endfor %}
         </div>
 
@@ -187,7 +187,7 @@
         <div class="catalogue-slider-line">
           {% for product in viewed_products %}
             <div class="catalogue-card">
-              {% include 'templates/cardXlForSlider.html' %}
+              {% include 'core_components/templates/cardXlForSlider.html' %}
             </div>
           {% endfor %}
         </div>
@@ -197,20 +197,20 @@
     <!-- MODALS -->
 
     <!-- MODAL-CALL-BACK -->
-    {% include 'templates/callBackModal.html' %}
+    {% include 'core_components/templates/callBackModal.html' %}
 
     <!-- MODAL-USER-LOCATION -->
-    {% include 'templates/locationModal.html' %}
+    {% include 'core_components/templates/locationModal.html' %}
 
     <!-- MODAL-QUICK-ORDER -->
-    {% include 'templates/quickOrderModal.html' %}
+    {% include 'core_components/templates/quickOrderModal.html' %}
 
     <!-- BUTTONS -->
-    {% include 'templates/buttons.html' %}
+    {% include 'core_components/templates/buttons.html' %}
   </main>
 
   <!-- FOOTER -->
-  {% include 'templates/footer.html' %}
+  {% include 'core_components/templates/footer.html' %}
 
   <!-- SCRIPT`S -->
 

@@ -33,11 +33,11 @@
 
 <body>
     <!-- HEADER -->
-    {% include 'templates/header.html' %}
+    {% include 'core_components/templates/header.html' %}
 
     <main>
         <div class="container">
-            {% include 'templates/cartOrdersSwitch.html' %}
+            {% include 'core_components/templates/cartOrdersSwitch.html' %}
 
             <div class="ordered-container">
                 {% for order in orders %}
@@ -98,19 +98,19 @@
 
         <!-- MODALS -->
         <!-- MODAL-CALL-BACK -->
-        {% include 'templates/callBackModal.html' %}
+        {% include 'core_components/templates/callBackModal.html' %}
         <!-- MODAL-USER-LOCATION -->
-        {% include 'templates/locationModal.html' %}
+        {% include 'core_components/templates/locationModal.html' %}
 
         <!-- MODAL-QUICK-ORDER -->
-        {% include 'templates/quickOrderModal.html' %}
+        {% include 'core_components/templates/quickOrderModal.html' %}
 
         <!-- SOCIALS BUTTONS -->
-        {% include 'templates/buttons.html' %}
+        {% include 'core_components/templates/buttons.html' %}
     </main>
 
     <!-- FOOTER -->
-    {% include 'templates/footer.html' %}
+    {% include 'core_components/templates/footer.html' %}
 
     <!-- SCRIPT`S -->
 

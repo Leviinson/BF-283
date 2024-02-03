@@ -37,7 +37,7 @@
 
 <body>
   <!-- HEADER -->
-  {% include 'templates/header.html' %}
+  {% include 'core_components/templates/header.html' %}
 
   <main>
     <!-- BREADCRUMBS -->
@@ -194,7 +194,7 @@
               hidden
             >
               <button class="delete-button icon remove-from-cart"></button>
-              {% include 'templates/counter.html' %}
+              {% include 'core_components/templates/counter.html' %}
             </div>
           <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         </div>
@@ -288,7 +288,7 @@
             <div class="slide_group our-bestsellers-slider">
               <div class="slide-card-container">
                 {% for product in similar_products %}
-                  {% include 'templates/cardXlForSlider.html' %}
+                  {% include 'core_components/templates/cardXlForSlider.html' %}
 
                   {% if forloop.counter|divisibleby:3 %}
                     </div>
@@ -306,19 +306,19 @@
     <!-- MODALS -->
 
     <!-- MODAL-CALL-BACK -->
-    {% include 'templates/callBackModal.html' %}
+    {% include 'core_components/templates/callBackModal.html' %}
     <!-- MODAL-USER-LOCATION -->
-    {% include 'templates/locationModal.html' %}
+    {% include 'core_components/templates/locationModal.html' %}
 
     <!-- MODAL-QUICK-ORDER -->
-    {% include 'templates/quickOrderModal.html' %}
+    {% include 'core_components/templates/quickOrderModal.html' %}
 
     <!-- SOCIALS BUTTONS -->
-    {% include 'templates/buttons.html' %}
+    {% include 'core_components/templates/buttons.html' %}
   </main>
 
   <!-- FOOTER -->
-  {% include 'templates/footer.html' %}
+  {% include 'core_components/templates/footer.html' %}
 
   <!-- SCRIPT`S -->
 
