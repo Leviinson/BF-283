@@ -58,3 +58,10 @@ class DeliveryDataModel(models.Model):
         verbose_name="Первая большая картинка",
         null=True,
     )
+
+class ContactsDataModel(models.Model):
+    main_image = models.ImageField(
+        upload_to=user_directory_path,
+        verbose_name="Первая большая картинка",
+        null=True,
+    )
