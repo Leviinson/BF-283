@@ -1,7 +1,6 @@
 """Views of the cart."""
 
 import json
-from pprint import pprint
 from typing import Any
 
 from django.http import HttpRequest, HttpResponse, HttpResponseServerError, JsonResponse
@@ -55,7 +54,6 @@ class CartView(AsyncTemplateView, ApplicationMixin):
             region_products,
             context["selected_currency"],
         )
-        pprint(context["cart_products"])
         context["cart_grand_total_price"] = self._calculate_cart_grand_total_price(
             context["cart_products"]
         )

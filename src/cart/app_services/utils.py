@@ -1,5 +1,4 @@
 from copy import copy
-from pprint import pprint
 from typing import Any
 
 from products.app_services.data_getters import crm_data
@@ -78,8 +77,6 @@ class Formatters:
                 region_products,
             )
         )
-        pprint(filtered_region_products)
-        print(123, "\n")
         for product in filtered_region_products:
             for cart_product in cart["products"]:
                 if cart_product["id"] == product["id"]:
@@ -92,7 +89,6 @@ class Formatters:
                     except DeprecatedBouquetSizeFoundError():
                         continue
                     result.append(product_copy)
-        pprint(result)
         return result
 
 

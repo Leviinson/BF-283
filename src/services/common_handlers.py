@@ -1,12 +1,10 @@
 """Contains common handlers classes."""
 
-from pprint import pprint
 import random
 from typing import Any
 
-from services.data_getters import crm_data
-from services.image_handlers import product_image_handler
 from cart.app_services.utils import formatters as cart_formatters
+from services.data_getters import crm_data
 
 
 class CommonHandlers:
@@ -57,7 +55,6 @@ class CommonHandlers:
         Args:
             context (dict): The context dictionary.
         """
-        pprint(cart)
         region_products = await crm_data.get_region_products(
             region_slug,
             currency=currency,

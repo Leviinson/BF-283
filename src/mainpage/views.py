@@ -62,7 +62,6 @@ class MainPageView(ApplicationMixin, AsyncTemplateView):
                 region["slug"], region_products, cart_products
             )
         )
-
         seo_blocks = await self.get_seo_blocks()
         context["first_seo_block"] = seo_blocks[0]
         context["second_seo_block"] = seo_blocks[1]
