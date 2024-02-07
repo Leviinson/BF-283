@@ -6,6 +6,7 @@
   aria-labelledby="callBackModalLabel"
   aria-hidden="true"
 >
+
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,7 +19,8 @@
           Зворотній дзвінок
         </h5>
         <div class="input-tell-container">
-          <form action="#" method="get" class="call-back-modal-form">
+          <form action="#" method="post" class="call-back-modal-form">
+            {% csrf_token %}
             <div class="content">
               <input
                 type="text"

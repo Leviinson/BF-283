@@ -54,10 +54,13 @@ class MainPageView(ApplicationMixin, AsyncTemplateView):
 
         context["region_bestsellers"] = utilities.get_region_bestsellers(region_products)
 
-        context[
-            "additional_products"
-        ] = await common_handlers.get_first_three_additional_products(
-            region["slug"], region_products
+        cart_products = await common_handlers.get_cart_products(
+            region["slug"], cart, context["selected_currency"]
+        )
+        context["additional_products"] = (
+            await common_handlers.get_first_three_additional_products(
+                region["slug"], region_products, cart_products
+            )
         )
 
         seo_blocks = await self.get_seo_blocks()

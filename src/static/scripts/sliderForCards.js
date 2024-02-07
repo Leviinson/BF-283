@@ -154,7 +154,7 @@ function sliderForCards(desktopCardHeight = 535, mobileCardHeight = 270, shiftIn
 
 let swiper = new Swiper('.swiper2', {
 	slidesPerView: 1,
-	loop: true,
+	loop: false,
   autoHeight: true,
   autoplay: {
     delay: 5000,
