@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'fillers/styles.css' %}">
+    <title>Про нас</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="subtitle">
+            <h6>Про нас</h6>
+        </div>
+        <div class="title">
+            <h1>Доставка</h1>
+        </div>
+        <div class="main">
+            <div class="main-img"><img src="{{ main_image.picture.url }}" alt="img" /></div>
+            <div class="pay__inner">
+                <div class="pay__title">
+                    <h3>Доставка по місту Київ працює щодня цілодобово! </h3>
+                </div>
+                <br>
+                <div class="pay__text">
+                    <span>Доставка Новою поштою по всій Україні: </span>
+                    <p>У відділення «Нової пошти» або кур'єром за вашою адресою</p>
+                </div>
+                <div class="pay__text">
+                    <p>Умови доставки: </p>
+                    <p>Доставка сервісом Нова Пошта можлива лише при передоплаті</p>
+                </div>
+                <div class="pay__text">
+                    <p>Вартість доставки сплачується згідно тарифів та умов кур'єрської службы «Нова пошта».</p>
+                </div>
+                <div class="pay__text">
+                    <p>Сроки та графік доставки замовлення залежать від адреси отримувача, а також умов сервісу «Нова
+                        пошта».</p>
+                </div>
+                <div class="pay__text">
+                    <p>Якщо є питання, Ви можете зв'язатися з нашим менеджером.</p>
+                </div>
+                <div class="pay__deliver">
+                    <h3>Доставка в місті <span>Київ</span><img src="down.png" alt="img" /></h3>
+                </div>
+                <div class="pay__map"></div>
+                <div class="pay__info">
+                    <div class="pay__info-item">
+                        <div class="pay__info-blocks">
+                            <div class="pay__info-block pay__info-block-bg1"></div>
+                            <div class="pay__info-block pay__info-block-bg2"></div>
+                            <div class="pay__info-block pay__info-block-bg2"></div>
+                        </div>
+                        <div class="pay__info-text">
+                            <p>Безкоштовна доставка від 600 грн</p>
+                        </div>
+                    </div>
+                    <div class="pay__info-item">
+                        <div class="pay__info-blocks">
+                            <div class="pay__info-block pay__info-block-bg3"></div>
+                        </div>
+                        <div class="pay__info-text">
+                            <p>Вартість доставки уточніть у менеджера</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pay__mes">
+                    <p>Замовлення потрібно робити мінімум за 2 години до часу, коли ви хочете його отримати</p>
+                </div>
+                <div class="pay__items">
+                    <div class="pay__item">
+                        <div class="pay__item-img"><img src="2.svg" alt="alt" /></div>
+                        <div class="pay__item-block">
+                            <div class="pay__item-subtitle">Денна доставка</div>
+                            <div class="pay__item-title">доставка - 150 грн</div>
+                            <div class="pay__item-text">при замовленні з 8:00 до 22:00 на суму до 600 грн</div>
+                        </div>
+                    </div>
+                    <div class="pay__item">
+                        <div class="pay__item-img"><img src="4.svg" alt="alt" /></div>
+                        <div class="pay__item-block">
+                            <div class="pay__item-subtitle">Денна доставка</div>
+                            <div class="pay__item-title">доставка - 150 грн</div>
+                            <div class="pay__item-text">при замовленні з 8:00 до 22:00 на суму до 600 грн</div>
+                        </div>
+                    </div>
+                    <div class="pay__item">
+                        <div class="pay__item-img"><img src="3.svg" alt="alt" /></div>
+                        <div class="pay__item-block">
+                            <div class="pay__item-subtitle">Денна доставка</div>
+                            <div class="pay__item-title">доставка - 150 грн</div>
+                            <div class="pay__item-text">при замовленні з 8:00 до 22:00 на суму до 600 грн</div>
+                        </div>
+                    </div>
+                    <div class="pay__item">
+                        <div class="pay__item-img"><img src="5.svg" alt="alt" /></div>
+                        <div class="pay__item-block">
+                            <div class="pay__item-subtitle">Денна доставка</div>
+                            <div class="pay__item-title">доставка - 150 грн</div>
+                            <div class="pay__item-text">при замовленні з 8:00 до 22:00 на суму до 600 грн</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pay__items-block">
+                    <p>Для доставки в нічний період замовлення потрібно зробити до 20:00 !!!</p>
+                </div>
+                <div class="pay__text">
+                    <p>Доставка виконується за адресою, вказаною вами в замовленні. У разі якщо одержувача немає на
+                        місці, букет буде залишений родичам, знайомим, консьєржу, колегам або іншим третім особам.</p>
+                </div>
+                <div class="pay__text">
+                    <p>Якщо потрібна термінова доставка - зв'яжіться з нашими менеджерами, вони обов'язково допоможуть!
+                    </p>
+                </div>
+                <div class="pay__icons">
+                    <a href="{{ region.facebook_link }}" class="icon contact-us-btn facebook"></a>
+                    <a href="{{ region.telegram_link }}" class="icon contact-us-btn telegram"></a>
+                    <a href="{{ region.whatsapp_link }}" class="icon contact-us-btn whatsapp"></a>
+                    <a href="{{ region.instagram_link }}" class="icon contact-us-btn instagram"></a>
+                </div>
+                <div class="pay__phone">(098) 997-19-91</div>
+                <div class="pay__phone">(098) 997-19-91</div>
+                <div class="pay__pay">Оплата</div>
+                <div class="pay__text">
+                    <p>Оплату наших товарів і послуг ви можете зробити будь-яким найбільш зручним для вас способом:</p>
+                </div>
+                <div class="pay__bank"><img src="6.svg" alt="img" /></div>
+                <div class="pay__visa">
+                    <p>Банківською картою (Visa/<br>Mastercard)</p>
+                </div>
+                <div class="pay__text">
+                    <p>Після оформлення замовлення ви будете перенаправлені на сторінку обраної платіжної системи.</p>
+                </div>
+                <div class="pay__pic">
+                    <div class="pay__pic-block"><img src="portmone.png" alt="img" /></div>
+                    <div class="pay__pic-block"><img src="visa.png" alt="img" /></div>
+                    <div class="pay__pic-block"><img src="mastercard.png" alt="img" /></div>
+                    <div class="pay__pic-block"><img src="liqpay.png" alt="img" /></div>
+                    <div class="pay__pic-block"><img src="privatbank.png" alt="img" /></div>
+                    <div class="pay__pic-block"><img src="monobank.png" alt="img" /></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

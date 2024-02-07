@@ -54,28 +54,29 @@ services:
 
       - DEBIAN_FRONTEND=noninteractive
     ports:
-      - 8000:8000
-    command: sh -c "service mysql start && \
+      - 80:80
+    command: sh -c "sleep 7s && \
+                    service mysql start && \
                     service mysql status && \
                     mkdir -p /apps/BonnyFlowers/zoho_token/logger && touch /apps/BonnyFlowers/zoho_token/logger/log.log && \
                     poetry env use python3 && \
                     poetry install --no-root  --no-interaction --no-ansi && \
-                    poetry run python3 manage.py collectstatic --noinput --no-color -c && \
+                    poetry run python3 manage.py collectstatic --noinput --no-color && \
                     poetry run python3 manage.py makemigrations --noinput catalogue custom_auth mainpage products userprofile zoho_token && \
                     poetry run python3 manage.py migrate && \
                     poetry run python3 create_init_records.py && \
-                    poetry run gunicorn -c gunicorn.conf.py config.wsgi"
-  nginx:
-    image: nginx
-    container_name: bf-nginx-kg
-    depends_on:
-      - app
-    ports:
-      - "80:80"
-    volumes:
-      - ./src/static:/var/www/html/static
-      - media_container:/var/www/html/media
-      - ./nginx-conf.d:/etc/nginx/conf.d
+                    poetry run python3 manage.py runserver 0.0.0.0:80"
+#  nginx:
+#    image: nginx
+#    container_name: bf-nginx-kg
+#    depends_on:
+#      - app
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - ./src/static:/var/www/html/static
+#      - media_container:/var/www/html/media
+#      - ./nginx-conf.d:/etc/nginx/conf.d
 volumes:
   media_container:
   mysqldata:

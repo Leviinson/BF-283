@@ -42,7 +42,7 @@ class CRMData:
             region_slug, subcategory_slug, product_slug, currency=currency, is_many=True
         )
         if product_data:
-            cache.set(f"{product_slug}_product", product_data, 10)
+            cache.set(f"{product_slug}_product", product_data, 3600)
         return product_data
 
     @staticmethod
@@ -54,7 +54,7 @@ class CRMData:
         if bouquet_data := cache.get(f"{product_id}_bouquet"):
             return bouquet_data
         bouquet_data: dict = await product_bouquet_handler.fetch_instances(product_id)
-        cache.set(f"{product_id}_bouquet", bouquet_data, 10)
+        cache.set(f"{product_id}_bouquet", bouquet_data, 3600)
         return bouquet_data
 
     @staticmethod
@@ -74,7 +74,7 @@ class CRMData:
         similar_bouquets = await first_nine_similar_bouquets_handler.fetch_instances(
             region_slug, product_id, **kwargs
         )
-        cache.set(f"{product_id}_similar_bouquets", similar_bouquets, 10)
+        cache.set(f"{product_id}_similar_bouquets", similar_bouquets, 3600)
         return similar_bouquets
 
     @staticmethod

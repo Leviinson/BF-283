@@ -205,17 +205,7 @@ class AsyncCheckoutForm(AsyncForm):
                 """Fields 'recipient name' and 'recipient phone number'
                 both must be filled together with 'is customer recipient' field."""
             )
-        if cleaned_data["ask_recipient_address"] and (
-            cleaned_data.get("country")
-            or cleaned_data.get("region")
-            or cleaned_data.get("city")
-            or cleaned_data.get("address")
-            or cleaned_data.get("flat")
-        ):
-            raise ValidationError(
-                f"Your address is specified when 'ask recipient address' option " f"checked."
-            )
-        elif not cleaned_data["ask_recipient_address"] and (
+        if not cleaned_data["ask_recipient_address"] and (
             not cleaned_data.get("country")
             or not cleaned_data.get("region")
             or not cleaned_data.get("city")
@@ -223,8 +213,7 @@ class AsyncCheckoutForm(AsyncForm):
             or not cleaned_data.get("flat")
         ):
             raise ValidationError(
-                f"You address isn't specified when 'ask recipient address' option "
-                f"unchecked."
+                f"You address isn't specified and 'ask recipient address' option " f"unchecked."
             )
         if not cleaned_data.get("date"):
             raise ValidationError("Delivery date isn't specified.")

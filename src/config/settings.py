@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     "custom_auth.apps.CustomAuthConfig",
     "userprofile.apps.UserprofileConfig",
     "cart.apps.CartConfig",
-    "location.apps.LocationConfig"
+    "location.apps.LocationConfig",
+    "fillers.app.FillersConfig"
     # "delivery_and_payment.apps.DeliveryAndPaymentConfig",
     # "reviews.apps.ReviewsConfig",
 ]
@@ -74,8 +75,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["static/"],
-        "APP_DIRS": False,
+        "DIRS": ["coreStaticFiles/templates"],
+        "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -169,7 +170,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
         "LOCATION": BASE_DIR / "api_cache",
     }
 }
