@@ -22,8 +22,8 @@
             <!-- SELECTED -->
           </div>
           <div class="help-link">
-            <a href="" class="p-14-auto-regular">Про нас</a>
-            <a href="" class="p-14-auto-regular">Доставка і оплата</a>
+            <a href="{% url 'fillers:about' region.slug %}?currency={{ selected_currency.Name }}" class="p-14-auto-regular">Про нас</a>
+            <a href="{% url 'fillers:delivery' region.slug %}?currency={{ selected_currency.Name }}" class="p-14-auto-regular">Доставка і оплата</a>
             <a href="" class="p-14-auto-regular">Контакти</a>
           </div>
         </div>
