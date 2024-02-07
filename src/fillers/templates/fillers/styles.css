@@ -62,7 +62,6 @@ p {
 	margin: 35px auto 44px;
 	width: 100%;
 	height: 300px;
-	border: 1px solid red;
 	display: flex;
 	justify-content: center;
 	overflow: hidden;
