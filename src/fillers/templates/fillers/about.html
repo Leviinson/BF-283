@@ -22,11 +22,9 @@
 </head>
 
 <body>
+	{% include 'core_components/header.html' %}
 
 	<div class="container">
-		<div class="subtitle">
-			<h6>Про нас</h6>
-		</div>
 		<div class="title">
 			<h1>Про нас</h1>
 		</div>
@@ -39,13 +37,13 @@
 					expedita magnam consequuntur perferendis obcaecati porro veritatis blanditiis? Quia dolorum
 					voluptatum quidem quis sint atque laboriosam asperiores.</p>
 			</div>
-			<div class="main-img"><img src="{{ about_us_context.main_image_upper.picture.url }}" alt="img" /></div>
+			<div class="main-img"><img src="{{ about_us_context.main_image_upper.url }}" alt="img" /></div>
 			<div class="main-text">
 				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloribus sint ducimus! Asperiores
 					expedita magnam consequuntur perferendis obcaecati porro veritatis blanditiis? Quia dolorum
 					voluptatum quidem quis sint atque laboriosam asperiores.</p>
 			</div>
-			<div class="main-img"><img src="{{ about_us_context.main_image_down.picture.url }}" alt="img" /></div>
+			<div class="main-img"><img src="{{ about_us_context.main_image_down.url }}" alt="img" /></div>
 			<div class="main-title">
 				<h2>BonnyFlowers — квіти великого міста</h2>
 			</div>
@@ -56,7 +54,7 @@
 			</div>
 			<div class="blocks">
 				<div class="block">
-					<div class="block-img"><img src="{{ about_us_context.small_image_left_first.picture.url }}"
+					<div class="block-img"><img src="{{ about_us_context.small_image_left_first.url }}"
 							alt="img" /></div>
 					<div class="block-title">
 						<h3>Lorem, ipsum dolor.</h3>
@@ -68,33 +66,7 @@
 					</div>
 				</div>
 				<div class="block">
-					<div class="block-img"><img src="{{ about_us_context.small_image_right_first.picture.url }}"
-							alt="img" /></div>
-					<div class="block-title">
-						<h3>Lorem, ipsum dolor.</h3>
-					</div>
-					<div class="block-text">
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat adipisci velit tempore eum
-							laborum non commodi, ducimus at! Natus tempora recusandae provident corporis molestiae
-							voluptates.</p>
-					</div>
-				</div>
-			</div>
-			<div class="blocks">
-				<div class="block">
-					<div class="block-img"><img src="{{ about_us_context.small_image_left_second.picture.url }}"
-							alt="img" /></div>
-					<div class="block-title">
-						<h3>Lorem, ipsum dolor.</h3>
-					</div>
-					<div class="block-text">
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat adipisci velit tempore eum
-							laborum non commodi, ducimus at! Natus tempora recusandae provident corporis molestiae
-							voluptates.</p>
-					</div>
-				</div>
-				<div class="block">
-					<div class="block-img"><img src="{{ about_us_context.small_image_right_second.picture.url }}"
+					<div class="block-img"><img src="{{ about_us_context.small_image_right_first.url }}"
 							alt="img" /></div>
 					<div class="block-title">
 						<h3>Lorem, ipsum dolor.</h3>
@@ -108,7 +80,7 @@
 			</div>
 			<div class="blocks">
 				<div class="block">
-					<div class="block-img"><img src="{{ about_us_context.small_image_left_third.picture.url }}"
+					<div class="block-img"><img src="{{ about_us_context.small_image_left_second.url }}"
 							alt="img" /></div>
 					<div class="block-title">
 						<h3>Lorem, ipsum dolor.</h3>
@@ -120,7 +92,33 @@
 					</div>
 				</div>
 				<div class="block">
-					<div class="block-img"><img src="{{ about_us_context.small_image_right_third.picture.url }}"
+					<div class="block-img"><img src="{{ about_us_context.small_image_right_second.url }}"
+							alt="img" /></div>
+					<div class="block-title">
+						<h3>Lorem, ipsum dolor.</h3>
+					</div>
+					<div class="block-text">
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat adipisci velit tempore eum
+							laborum non commodi, ducimus at! Natus tempora recusandae provident corporis molestiae
+							voluptates.</p>
+					</div>
+				</div>
+			</div>
+			<div class="blocks">
+				<div class="block">
+					<div class="block-img"><img src="{{ about_us_context.small_image_left_third.url }}"
+							alt="img" /></div>
+					<div class="block-title">
+						<h3>Lorem, ipsum dolor.</h3>
+					</div>
+					<div class="block-text">
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat adipisci velit tempore eum
+							laborum non commodi, ducimus at! Natus tempora recusandae provident corporis molestiae
+							voluptates.</p>
+					</div>
+				</div>
+				<div class="block">
+					<div class="block-img"><img src="{{ about_us_context.small_image_right_third.url }}"
 							alt="img" /></div>
 					<div class="block-title">
 						<h3>Lorem, ipsum dolor.</h3>

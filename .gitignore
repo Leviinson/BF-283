@@ -1,0 +1,4 @@
+.env
+**/__pycache__/
+src/poetry.lock
+src/api_cache/

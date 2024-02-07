@@ -35,7 +35,7 @@ class AboutUsView(AsyncTemplateView, ApplicationMixin):
         context: dict[str, list[dict[str, Any]]] = await self.get_common_context(
             **await super().get_context_data(**kwargs)
         )
-        context["about_us_context"] = await self.get_about_us_context()
+        context["about_us_context"] = (await self.get_about_us_context())[0]
         if isinstance(context, HttpResponseServerError):
             return context
         return context

@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     "userprofile.apps.UserprofileConfig",
     "cart.apps.CartConfig",
     "location.apps.LocationConfig",
-    "fillers.app.FillersConfig"
+    "fillers.apps.FillersConfig"
     # "delivery_and_payment.apps.DeliveryAndPaymentConfig",
     # "reviews.apps.ReviewsConfig",
 ]
@@ -147,6 +147,7 @@ STATICFILES_DIRS = [
     "catalogue/templates/",
     "cart/templates/",
     "orders/templates/",
+    "fillers/templates/"
 ]
 
 MEDIA_URL = "/media/"
@@ -168,9 +169,15 @@ DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+#         "LOCATION": BASE_DIR / "api_cache",
+#     }
+# }
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
         "LOCATION": BASE_DIR / "api_cache",
     }
 }
