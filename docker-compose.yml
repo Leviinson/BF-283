@@ -1,13 +1,10 @@
 version: '3'
 services:
   db:
-    build:
-      context: ./
-      dockerfile: containers/db/Dockerfile
     volumes:
       - mysqldata:/var/lib/mysql
     image: mysql:8.0
-    container_name: bf-mysql-1.0-kg
+    container_name: bf-db
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -20,39 +17,13 @@ services:
     build:
       context: ./
       dockerfile: containers/app/Dockerfile
-    container_name: bf-app-1.0-kg
+    container_name: bf-app
     volumes:
       - ./src/static:/apps/BonnyFlowers/static
       - media_container:/apps/BonnyFlowers/media
       - ./src:/apps/BonnyFlowers
     environment:
-      - NGINX_DOMEN=${NGINX_DOMEN}
-      - GUNICORN_DOMEN=${GUNICORN_DOMEN}
-      - SECRET_KEY=${SECRET_KEY}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_HOST=${MYSQL_HOST}
-      - MYSQL_PORT=${MYSQL_INTERNAL_PORT}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-
-      - MAIL_SERVER=${MAIL_SERVER}
-      - MAIL_USERNAME=${MAIL_USERNAME}
-      - MAIL_PASSWORD=${MAIL_PASSWORD}
-      - MAIL_PORT=${MAIL_PORT}
-      - DEFAULT_FROM_EMAIL=${DEFAULT_FROM_EMAIL}
-
-      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
-      - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER}
-      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
-
-      - ZOHO_CURRENT_USER_EMAIL=${ZOHO_CURRENT_USER_EMAIL}
-      - ZOHO_RESOURCE_PATH=${ZOHO_RESOURCE_PATH}
-      - ZOHO_LOGGER_PATH=${ZOHO_LOGGER_PATH}
-      - GRANT_TOKEN=${GRANT_TOKEN}
-      - ZOHO_CLIENT_SECRET=${ZOHO_CLIENT_SECRET}
-      - ZOHO_CLIENT_ID=${ZOHO_CLIENT_ID}
-
-      - DEBIAN_FRONTEND=noninteractive
+      - file: .env
     ports:
       - 80:80
     command: sh -c "sleep 7s && \
