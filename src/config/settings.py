@@ -169,17 +169,17 @@ DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.dummy.DummyCache",
-#         "LOCATION": BASE_DIR / "api_cache",
-#     }
-# }
 CACHES = {
     "default": {
-        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "BACKEND": "django.core.cache.backends.dummy.DummyCache",
         "LOCATION": BASE_DIR / "api_cache",
     }
 }
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+#         "LOCATION": BASE_DIR / "api_cache",
+#     }
+# }
 
 CACHE_MIDDLEWARE_SECONDS = 10
