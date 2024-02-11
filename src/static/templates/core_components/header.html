@@ -22,9 +22,9 @@
             <!-- SELECTED -->
           </div>
           <div class="help-link">
-            <a href="" class="p-14-auto-regular">Про нас</a>
-            <a href="" class="p-14-auto-regular">Доставка і оплата</a>
-            <a href="" class="p-14-auto-regular">Контакти</a>
+            <a href="{% url 'fillers:about' region.slug %}?currency={{ selected_currency.Name }}" class="p-14-auto-regular">Про нас</a>
+            <a href="{% url 'fillers:delivery' region.slug %}?currency={{ selected_currency.Name }}" class="p-14-auto-regular">Доставка і оплата</a>
+            <a href="{% url 'fillers:contacts' region.slug %}?currency={{ selected_currency.Name }}" class="p-14-auto-regular">Контакти</a>
           </div>
         </div>
         <div class="right">
@@ -429,12 +429,11 @@
     <div class="bottom bg-light-red">
       <div class="help-link">
         <div class="box">
-          <a href="" class="h3-20-auto-light red">Заміна та повернення</a>
-          <a href="" class="h3-20-auto-light red">Про нас</a>
+          <a href="{% url 'fillers:about' region.slug %}?currency={{ selected_currency.Name }}" class="h3-20-auto-light red">Про нас</a>
         </div>
         <div class="box">
-          <a href="" class="h3-20-auto-light red">Доставка і оплата</a>
-          <a href="" class="h3-20-auto-light red">Контакти</a>
+          <a href="{% url 'fillers:delivery' region.slug %}?currency={{ selected_currency.Name }}" class="h3-20-auto-light red">Доставка і оплата</a>
+          <a href="{% url 'fillers:contacts' region.slug %}?currency={{ selected_currency.Name }}" class="h3-20-auto-light red">Контакти</a>
         </div>
       </div>
     </div>

@@ -53,4 +53,15 @@ class AboutUsContextModel(models.Model):
     )
 
 class DeliveryDataModel(models.Model):
-    pass
+    main_image = models.ImageField(
+        upload_to=user_directory_path,
+        verbose_name="Первая большая картинка",
+        null=True,
+    )
+
+class ContactsDataModel(models.Model):
+    main_image = models.ImageField(
+        upload_to=user_directory_path,
+        verbose_name="Первая большая картинка",
+        null=True,
+    )

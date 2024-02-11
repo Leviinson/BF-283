@@ -22,6 +22,7 @@
 
   <!-- SITE-STYLE -->
 
+  <link rel="stylesheet" href="{% static 'styles/swiper832.min.css' %}">
   <link rel="stylesheet" href="{% static 'styles/common.css' %}" />
   <link rel="stylesheet" href="{% static 'cart/styles.css' %}" />
   <link rel="stylesheet" href="{% static 'styles/header.css' %}">
@@ -179,25 +180,23 @@
         <div class="title-box m-b-70">
           <h4 class="h1-42-auto-bold">Пропонуємо додати</h4>
         </div>
-        <div class="slider-product-container">
-          <div class="slide_viewer">
-            <div class="slide_group our-bestsellers-slider">
-
-              <div class="slide-card-container">
-                {% for product in suggested_products %}
-
-                  {% include 'core_components/cardXlForSlider.html' %}
-
-                  {% if forloop.counter|divisibleby:3 %}
-                    </div>
-                    <div class="slide-card-container">
-                  {% endif %}
-                {% endfor %}
+        <div class="swiper">
+          <div class="swiper__inner">
+            <div class="swiper-container swiper2">
+              <div class="slider2 swiper-wrapper">
+                <div class="slide2 swiper-slide">
+                  {% for product in suggested_products %}
+                    {% include 'core_components/cardXlForSlider.html' %}
+                    {% if forloop.counter|divisibleby:3 %}
+                      </div>
+                      <div class="slide2 swiper-slide">
+                    {% endif %}
+                  {% endfor %}
+                </div>
               </div>
-
+              <div class="swiper-pagination"></div>
             </div>
           </div>
-          <a href="#visibleSimilarProducts" class="slide_buttons"></a>
         </div>
       </div>
     </section>
@@ -244,6 +243,7 @@
   </script>
 
   <!-- OWN JS CODE -->
+  <script src="{% static 'scripts/swiper832.js' %}"></script>
   <script src="{% static 'scripts/header.js' %}"></script>
   <script src="{% static 'scripts/common.js' %}"></script>
   <script src="{% static 'cart/index.js' %}"></script>

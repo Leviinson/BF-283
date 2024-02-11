@@ -2163,7 +2163,6 @@ height: 100vh;
 .slider-product-container {
   max-width: 1090px;
   width: 100%;
-  height: 1105px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -2171,14 +2170,12 @@ height: 100vh;
 
 .slider-product-container .slide_viewer {
   width: 100%;
-  /* height: 1105px; */
   overflow: hidden;
   position: relative;
 }
 
 .slider-product-container .slide_group {
   position: relative;
-  /* height: 1105px; */
   width: 100%;
 }
 
@@ -2214,13 +2211,6 @@ height: 100vh;
   border: 1px solid var(--gray);
 }
 
-.swiper-pagination-bullet {
-  height: 14px;
-  width: 14px;
-  border-radius: 50vh;
-  background-color: transparent;
-  border: 1px solid var(--gray);
-}
 
 .swiper-pagination-bullet-active,
 .swiper-pagination-bullet:hover {

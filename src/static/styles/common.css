@@ -2214,13 +2214,6 @@ height: 100vh;
   border: 1px solid var(--gray);
 }
 
-.swiper-pagination-bullet {
-  height: 14px;
-  width: 14px;
-  border-radius: 50vh;
-  background-color: transparent;
-  border: 1px solid var(--gray);
-}
 
 .swiper-pagination-bullet-active,
 .swiper-pagination-bullet:hover {

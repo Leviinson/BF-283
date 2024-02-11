@@ -8,7 +8,6 @@ $(document).ready(function () {
   const callBackInputName = document.querySelector('.call-back-modal-name');
   const callBackButton = document.querySelector('.call-back-modal-button');
   const csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
-
   const iti = window.intlTelInput(callBackInputTel, {
     formatOnDisplay: true,
     hiddenInput: "full_number",

@@ -1,4 +1,5 @@
 """Views of the cart."""
+
 import json
 from typing import Any
 
@@ -57,7 +58,7 @@ class CartView(AsyncTemplateView, ApplicationMixin):
             context["cart_products"]
         )
         context["suggested_products"] = await self._get_suggested_products(
-            region, region_products
+            region, region_products, context["cart_products"]
         )
         context["is_cart"] = True
         return context
@@ -124,7 +125,7 @@ class CartView(AsyncTemplateView, ApplicationMixin):
         )
 
     async def _get_suggested_products(
-        self, region: dict[str, Any], region_products: list[dict[str, Any]]
+        self, region: dict[str, Any], region_products: list[dict[str, Any]], cart_products
     ) -> list[dict[str, Any]]:
         """
         Get suggested products for the given region.
@@ -134,7 +135,7 @@ class CartView(AsyncTemplateView, ApplicationMixin):
         :return: A list of suggested products.
         """
         return await common_handlers.get_first_three_additional_products(
-            region["slug"], region_products
+            region["slug"], region_products, cart_products
         )
 
     def _calculate_cart_grand_total_price(

@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     "userprofile.apps.UserprofileConfig",
     "cart.apps.CartConfig",
     "location.apps.LocationConfig",
-    "fillers.apps.FillersConfig"
+    "fillers.apps.FillersConfig",
     # "delivery_and_payment.apps.DeliveryAndPaymentConfig",
     # "reviews.apps.ReviewsConfig",
 ]
@@ -147,7 +147,7 @@ STATICFILES_DIRS = [
     "catalogue/templates/",
     "cart/templates/",
     "orders/templates/",
-    "fillers/templates/"
+    "fillers/templates/",
 ]
 
 MEDIA_URL = "/media/"

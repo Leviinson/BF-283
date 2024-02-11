@@ -22,6 +22,7 @@
 
   <!-- SITE-STYLE -->
 
+  <link rel="stylesheet" href="{% static 'styles/swiper832.min.css' %}">
   <link rel="stylesheet" href="{% static 'styles/common.css' %}" />
   <link rel="stylesheet" href="{% static 'styles/header.css' %}" />
   <link rel="stylesheet" href="{% static 'styles/footer.css' %}" />
@@ -31,6 +32,7 @@
   <link rel="stylesheet" href="{% static 'styles/cardXlForSlider.css' %}" />
   <link rel="stylesheet" href="{% static 'styles/cardLforCart.css' %}" />
   <link rel="stylesheet" href="{% static 'orders/styles.css' %}" />
+  
 </head>
 
 <body>
@@ -58,14 +60,8 @@
           <div class="order-input-group">
             <div class="content">
               <div class="form-group">
-                <input
-                  type="tel"
-                  class="form-control tel order-tel"
-                  name="customer_phone_number_mask"
-                  inputmode="tel"
-                  value=""
-                  required
-                />
+                <input type="tel" class="form-control tel order-tel" name="customer_phone_number_mask" inputmode="tel"
+                  value="" required />
                 {{ form.customer_phone_number }}
               </div>
               {{ form.customer_name }}
@@ -93,29 +89,21 @@
           <div>
             <div class="content">
               <input type="checkbox" id="orderByCourier" class="order-by-courier" hidden />
-              <label
-                for="orderByCourier"
-                class="button-main-text p-16-auto-medium m-b-40"
-              >
+              <label for="orderByCourier" class="button-main-text p-16-auto-medium m-b-40">
                 Кур’єром
               </label>
 
-            <div class="m-b-40 order-switch-specify">
-              <div class="toggle-switch">
-                {{ form.ask_recipient_address }}
-                <label for="switchAddress"></label>
+              <div class="m-b-40 order-switch-specify">
+                <div class="toggle-switch">
+                  {{ form.ask_recipient_address }}
+                  <label for="switchAddress"></label>
+                </div>
+                <label for="switchAddress">Уточнити адресу у отримувача</label>
               </div>
-              <label for="switchAddress">Уточнити адресу у отримувача</label>
-            </div>
 
               <div class="order-address-container order-input-group">
-                <input
-                  type="text"
-                  class="p-16-auto-regular darck-gray input-text order-address-mask"
-                  name="address_mask"
-                  id="autocompleteAddress"
-                  placeholder="Виберіть адресу"
-                />
+                <input type="text" class="p-16-auto-regular darck-gray input-text order-address-mask"
+                  name="address_mask" id="autocompleteAddress" placeholder="Виберіть адресу" />
                 {{ form.address }}
                 {{ form.flat }}
                 {{ form.city }}
@@ -123,12 +111,8 @@
                 {{ form.country }}
                 <div class="order-date-input">
                   {{ form.date }}
-                  <input
-                    type="text"
-                    class="p-16-auto-regular darck-gray input-text order-date-mask"
-                    name="date_mask"
-                    placeholder="Дата"
-                  />
+                  <input type="text" class="p-16-auto-regular darck-gray input-text order-date-mask" name="date_mask"
+                    placeholder="Дата" />
                 </div>
               </div>
             </div>
@@ -138,20 +122,14 @@
             {{ form.recipient_is_customer }}
             <label for="isRecipientCustomer" class="p-16-auto-medium">Я одержувач</label>
             {{ form.recipient_is_not_customer }}
-            <label for="isRecipientNotCustomer" class="p-16-auto-medium" >У подарунок</label>
+            <label for="isRecipientNotCustomer" class="p-16-auto-medium">У подарунок</label>
           </div>
 
           <div class="order-address-container order-input-group order-present">
             {{ form.recipient_name }}
             <div class="form-group">
-              <input
-                type="tel"
-                class="form-control tel order-tel order-recipient-phone"
-                name="recipient_phone_number_mask"
-                inputmode="tel"
-                value=""
-                required
-              />
+              <input type="tel" class="form-control tel order-tel order-recipient-phone"
+                name="recipient_phone_number_mask" inputmode="tel" value="" required />
               {{ form.recipient_phone_number }}
             </div>
           </div>
@@ -187,33 +165,52 @@
             <div class="order-separator"></div>
           </div>
 
-          <!-- SLIDER -->
+          <!-- SLIDER
           <div class="slider-for-cards m-b-60">
             <div class="slider-for-cards-container">
               <div class="slider-product-container">
                 <div class="slide_viewer">
                   <div class="slide_group our-bestsellers-slider">
-      
+
                     <div class="slide-card-container">
                       {% for product in suggested_products %}
                         {% include 'core_components/cardXlForSliderWithoutButton.html' %}
-                        
+
                         {% if forloop.counter|divisibleby:2 %}
                           </div>
                           <div class="slide-card-container">
                         {% endif %}
                       {% endfor %}
                     </div>
-      
+
                   </div>
                 </div>
                 <a href="#orderSlider" class="slide_buttons"></a>
               </div>
             </div>
+          </div> -->
+
+          <div class="swiper">
+            <div class="swiper__inner">
+              <div class="swiper-container swiper2">
+                <div class="slider2 swiper-wrapper">
+                  <div class="slide2 swiper-slide">
+                    {% for product in suggested_products %}
+                      {% include 'core_components/cardXlForSliderWithoutButton.html' %}
+                      {% if forloop.counter|divisibleby:2 %}
+                        </div>
+                        <div class="slide2 swiper-slide">
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
           </div>
 
           <div id="orderCardsContainer" class="order-cards-container">
-              
+
           </div>
 
           <!-- STEP 5 -->
@@ -228,13 +225,7 @@
           <div class="order-paymentTypes-container">
             <div>
               <div class="order-paymentType">
-                <input
-                    class="form-check-input"
-                    type="radio"
-                    name="paymentType"
-                    id="paymentType-0"
-                    checked
-                />
+                <input class="form-check-input" type="radio" name="paymentType" id="paymentType-0" checked />
                 <label for="paymentType-0" class="p-16-auto-regular">Liqpay</label>
               </div>
               <label for="paymentType-0" class="order-paymentType-logo">Logo 1</label>
@@ -245,12 +236,7 @@
 
             <div>
               <div class="order-paymentType">
-                <input
-                    class="form-check-input"
-                    type="radio"
-                    name="paymentType"
-                    id="paymentType-1"
-                />
+                <input class="form-check-input" type="radio" name="paymentType" id="paymentType-1" />
                 <label for="paymentType-1" class="p-16-auto-regular">Portmone</label>
               </div>
               <label for="paymentType-1" class="order-paymentType-logo">Logo 2</label>
@@ -260,12 +246,13 @@
             </div>
           </div>
         </section>
-        
+
         <!-- ORDER SELECTED SECTION -->
         <section class="order-selected">
           <div class="m-b-40 order-selected-title-container">
             <h2 class="h2-24-auto-medium">Ваше замовлення</h2>
-            <a href="{% url 'cart:cart' region.slug %}?currency={{ selected_currency.Name }}" class="p-14-auto-regular red">Редагувати</a>
+            <a href="{% url 'cart:cart' region.slug %}?currency={{ selected_currency.Name }}"
+              class="p-14-auto-regular red">Редагувати</a>
           </div>
 
           <div class="m-b-40 order-selected-cards-container">
@@ -277,7 +264,7 @@
           <div class="order-selected-totalprice">
             <p class="p-16-auto-regular">Разом:</p>
             <p class="h2-24-auto-medium red">
-              <span id="cartTotalPrice" class="cart-total-price">{{ cart_grand_total_price }}</span> 
+              <span id="cartTotalPrice" class="cart-total-price">{{ cart_grand_total_price }}</span>
               <span>{{ selected_currency.symbol }}</span>
             </p>
           </div>
@@ -286,20 +273,11 @@
 
       <!-- BOTTOM SECTION -->
       <section class="order-bottom-container">
-        <button 
-          type="submit" 
-          class="button-main-text p-16-auto-bold order-button disabled-button"
-          disabled
-        >
+        <button type="submit" class="button-main-text p-16-auto-bold order-button disabled-button" disabled>
           Оформити замовлення
         </button>
         <div class="order-terms">
-          <input
-              class="form-check-input"
-              type="radio"
-              name="orderTerms"
-              id="orderTerms"
-          />
+          <input class="form-check-input" type="radio" name="orderTerms" id="orderTerms" />
           <label for="orderTerms" class="p-16-auto-regular" required>
             Я Згоден(а) з умовами договору публічної оферти.
           </label>
@@ -307,7 +285,7 @@
       </section>
     </form>
 
-      <!-- MODALS -->
+    <!-- MODALS -->
     <!-- MODAL-CALL-BACK -->
     {% include 'core_components/callBackModal.html' %}
     <!-- MODAL-USER-LOCATION -->
@@ -343,10 +321,12 @@
   <script src="{% static 'scripts/locationModal.js' %}"></script>
 
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5i5JJfxtMemi02YamAeiMa1FqYbOqCQA&libraries=places&language=en&callback=initAutocomplete" async defer>
-  </script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5i5JJfxtMemi02YamAeiMa1FqYbOqCQA&libraries=places&language=en&callback=initAutocomplete"
+    async defer>
+    </script>
 
   <!-- OWN JS CODE -->
+  <script src="{% static 'scripts/swiper832.js' %}"></script>
   <script src="{% static 'scripts/header.js' %}"></script>
   <script src="{% static 'scripts/common.js' %}"></script>
   <script src="{% static 'orders/scripts.js' %}"></script>

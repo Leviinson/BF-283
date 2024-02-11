@@ -243,9 +243,13 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
         )
         if isinstance(context, HttpResponseServerError):
             return context
-        await self.update_context_with_cart_data(context)
-        self.calculate_cart_grand_total(context)
-        await self.update_context_with_suggested_products(context)
+        context["cart_products"] = cart_products = await common_handlers.get_cart_products(
+            context["region"]["slug"],
+            await session_data.get_or_create_cart(self.request.session),
+            context["selected_currency"],
+        )
+        context["cart_grand_total_price"] = self.calculate_cart_grand_total(cart_products)
+        await self.update_context_with_suggested_products(context, cart_products)
         return context
 
     async def update_context_with_cart_data(self, context):
@@ -265,9 +269,10 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
         context["cart_products"] = await cart_formatters.format_cart_products(
             cart, region_products, context["selected_currency"]
         )
+        return context["cart_products"]
 
     def calculate_cart_grand_total(
-        self, context
+        self, cart_products
     ):  # TODO: to combine this method with CartView._calculate_cart_grand_total_price
         """
         Calculate and add the cart grand total to the context.
@@ -275,18 +280,18 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
         Args:
             context (dict): The context dictionary.
         """
-        context["cart_grand_total_price"] = round(
+        return round(
             sum(
                 map(
                     lambda x: (x["unit_price"] if not x["discount"] else x["new_price"])
                     * x["cart_amount"],
-                    context["cart_products"],
+                    cart_products,
                 )
             ),
             2,
         )
 
-    async def update_context_with_suggested_products(self, context):
+    async def update_context_with_suggested_products(self, context, cart_products):
         """
         Update the context with suggested products.
 
@@ -297,10 +302,10 @@ class CheckoutView(AsyncFormView, ApplicationMixin):
         region_products = await crm_data.get_region_products(
             region["slug"], currency=context["selected_currency"]
         )
-        context[
-            "suggested_products"
-        ] = await common_handlers.get_first_three_additional_products(
-            region["slug"], region_products
+        context["suggested_products"] = (
+            await common_handlers.get_first_three_additional_products(
+                region["slug"], region_products, cart_products
+            )
         )
 
     async def get(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:

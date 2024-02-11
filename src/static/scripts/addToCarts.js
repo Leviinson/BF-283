@@ -192,14 +192,14 @@ function addTemporaryToCart(card) {
             </div>
           </div>
           <div class="card-btn">
-                <button class="delete-button icon remove-from-cart"></button>
+                <button class="delete-button icon remove-from-cart" type="button"></button>
             </div>
           <div class="counter">
-            <button class="decrement icon grey"></button>
+            <button class="decrement icon grey" type="button"></button>
             <span class="count p-14-auto-medium">
                 1
             </span>
-            <button class="increment icon red"></button>
+            <button class="increment icon red" type="button"></button>
           </div>
         </div>
       </div>
